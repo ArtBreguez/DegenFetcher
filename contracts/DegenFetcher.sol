@@ -108,7 +108,7 @@ contract DegenFetcher {
                 if (timestamp >= fromTimestamp) {
                     uint segmentsSinceStart = (timestamp - fromTimestamp) / secondsBetweenDataPoints;
                     if (segmentsSinceStart < prices.length) {
-                        prices[segmentsSinceStart] = int32(price / 10**8);
+                        prices[segmentsSinceStart] = int32(price / 10**6);
                     }
                 }
             }

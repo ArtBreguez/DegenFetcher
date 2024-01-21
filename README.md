@@ -12,21 +12,10 @@ DegenFetcher accepts the following parameters:
 * Density (e.g. 48 data points per day)
 * Address of any [Chainlink feed](https://medium.com/r?url=https%3A%2F%2Fdocs.chain.link%2Fdocs%2Fethereum-addresses%2F); e.g. ETH/USD, DOGE/USD, EUR/USD
 
-## Degen Blues
 
-DegenFetcher was created for use in [Degen Blues](https://degenblues.xyz/), a dynamic music NFT project based on Ethereum price data.
+## Deployment & Verify
 
-## Deployment
-
-The source code for DegenFetcher.sol has been deployed to:
-
-* Ethereum Mainnet:
-  * [0xD32Fb8BF0DecC9A80968E480694Fa60e3E91895C](https://etherscan.io/address/0xd32fb8bf0decc9a80968e480694fa60e3e91895c#code)
-* Rinkeby:
-  * [0x92A7Ce844A0f0C4773162fFa1Cd3995FBD567770](https://rinkeby.etherscan.io/address/0x92A7Ce844A0f0C4773162fFa1Cd3995FBD567770#code)
-
-For each of the deployed contracts above, you can click on the *Read Contract* tab to test out the functions.
-
-## Support
-
-Have questions? Need support or inspiration? Just want to share something cool you're working on? The best place to connect with other artists doing data driven work is the #workshop channel of the [Degen Blues discord server](https://discord.gg/FBrBgTWYR8)
+```
+truffle migrate --network mumbai
+truffle run verify DegenFetcher --network mumba
+```

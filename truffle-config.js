@@ -2,7 +2,8 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const fs = require('fs');
 const mnemonic = fs.readFileSync(".secret").toString().trim();
-const etherscan_api_key = fs.readFileSync(".secret-etherscan").toString().trim();
+const etherscan_api_key = fs.readFileSync(".eth_api_key").toString().trim();
+const polygon_api_key = fs.readFileSync(".mumbai_api_key").toString().trim();
 
 module.exports = {
  networks: {
@@ -35,6 +36,14 @@ module.exports = {
       network_id: 1,
       confirmations: 2    // # of confs to wait between deployments. (default: 0)
     },
+    mumbai: {
+      provider: () => new HDWalletProvider(mnemonic, `https://rpc-mumbai.maticvigil.com`),
+      network_id: 80001, // Mumbai's network id
+      gas: 8000000,      // Mumbai has a higher block limit than mainnet
+      confirmations: 2,  // # of confs to wait between deployments (default: 0)
+      timeoutBlocks: 200,// # of blocks before a deployment times out (minimum/default: 50)
+      skipDryRun: true    // Skip dry run before migrations? (default: false for public nets )
+    },
   },
   compilers: {
     solc: {
@@ -57,6 +66,7 @@ module.exports = {
     'truffle-plugin-verify'
   ],
   api_keys: {
-    etherscan: etherscan_api_key
+    etherscan: etherscan_api_key,
+    polygonscan: polygon_api_key
   }
 };
